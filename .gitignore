@@ -1,0 +1,6 @@
+cyberbulling_model.pkl
+*.pkl
+__pycache__/
+*.pyc
+.env
+.DS_Store

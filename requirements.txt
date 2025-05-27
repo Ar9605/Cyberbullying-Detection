@@ -1,0 +1,8 @@
+streamlit
+scikit-learn
+textblob
+nltk
+joblib
+numpy
+pandas
+Grown
