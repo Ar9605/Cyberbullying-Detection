@@ -10,14 +10,16 @@ import string
 # =======================
 # 📥 Download model from Google Drive
 # =======================
-MODEL_FILE_ID = '10Sujo4zk-EkPUB01DtONm98kS0aovKew'  
+
+MODEL_FILE_ID = '10Sujo4zk-EkPUB01DtONm98kS0aovKew'
 
 def download_model(file_id, output='cyberbullying_model.pkl'):
-    url = f'https://drive.google.com/file/d/10Sujo4zk-EkPUB01DtONm98kS0aovKew/view?usp=sharing'
+    url = f'https://drive.google.com/uc?id={file_id}'
     if not os.path.exists(output):
         gdown.download(url, output, quiet=False)
 
 download_model(MODEL_FILE_ID)
+
 
 # =======================
 # 🔍 Text Preprocessing
