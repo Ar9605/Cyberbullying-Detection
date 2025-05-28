@@ -50,7 +50,7 @@ download_model(MODEL_FILE_ID)
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/your-username/cyberbullying-detection.git
+git clone https://github.com/Ar9605/cyberbullying-detection.git
 cd cyberbullying-detection
 ```
 
