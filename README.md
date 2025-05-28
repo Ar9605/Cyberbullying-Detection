@@ -1,91 +1,107 @@
-# 🚨 Cyberbullying Detection App
+# 🚨 Cyberbullying Detection on Twitter
 
-A machine learning-based web application that detects different types of cyberbullying from social media text using a stacking ensemble classifier.
-
-Built using:
-- 🐍 Python
-- 📊 Scikit-learn, TF-IDF
-- 🤖 Logistic Regression, Random Forest, SVM, Neural Net
-- 🌐 Streamlit for the frontend
-- 🧠 TextBlob for sentiment analysis
+A machine learning project that detects cyberbullying on Twitter using multiple supervised models and natural language processing (NLP) techniques.
 
 ---
 
-## 💡 Features
+## 📂 Project Structure
 
-- Classifies text into multiple cyberbullying categories (e.g., hate speech, not cyberbullying, etc.)
-- Uses a **Stacking Classifier** with multiple base models
-- Incorporates **sentiment analysis** features
-- Simple and interactive Streamlit frontend
-
----
-
-## 🚀 Getting Started
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/YOUR_USERNAME/cyberbullying-detector.git
-cd cyberbullying-detector
+```
+cyberbullying-detection/
+├── app.py
+├── tfidf_vectorizer.pkl
+├── requirements.txt
+├── README.md
+└── (cyberbullying_model.pkl) [Downloaded at runtime]
 ```
 
-### 2. Install dependencies
+---
+
+## 💾 Model Download (Google Drive)
+
+The main ML model (`cyberbullying_model.pkl`) is **not pushed to GitHub** due to size limitations.
+
+Instead, it is downloaded at runtime using `gdown` from Google Drive.
+
+### Model File Info:
+- **Google Drive File ID**: `10Sujo4zk-EkPUB01DtONm98kS0aovKew`
+
+### Download code in `app.py`:
+
+```python
+import gdown
+import os
+
+MODEL_FILE_ID = '10Sujo4zk-EkPUB01DtONm98kS0aovKew'
+MODEL_FILENAME = 'cyberbullying_model.pkl'
+
+def download_model(file_id, output=MODEL_FILENAME):
+    url = f'https://drive.google.com/uc?id={file_id}'
+    if not os.path.exists(output):
+        gdown.download(url, output, quiet=False)
+
+download_model(MODEL_FILE_ID)
+```
+
+---
+
+## 🛠 Installation & Setup
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/your-username/cyberbullying-detection.git
+cd cyberbullying-detection
+```
+
+2. **Install dependencies**
+
+Make sure to use a Python version compatible with the dependencies (Python 3.9–3.11 recommended).
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Run the Streamlit app
+> ⚠️ Note: `numpy==1.26.4` is used to ensure compatibility with Streamlit and model serialization.
+
+---
+
+## 🚀 Run the App Locally
 
 ```bash
 streamlit run app.py
 ```
 
----
-
-## 🗃️ Folder Structure
-
-```
-cyberbullying-detector/
-├── app.py                    # Streamlit frontend
-├── cyberbullying_model.pkl   # Trained stacking model
-├── tfidf_vectorizer.pkl      # Fitted TF-IDF vectorizer
-├── requirements.txt          # List of dependencies
-└── README.md                 # This file
-```
+Open the provided local URL in your browser to interact with the app.
 
 ---
 
-## 📦 Requirements
+## 🧠 ML Models Used
 
-You can install dependencies manually or use the included `requirements.txt`:
-
-```
-text
-streamlit
-scikit-learn
-textblob
-nltk
-joblib
-numpy
-pandas
-```
-
+- TF-IDF Vectorizer
+- Logistic Regression (or other supervised models)
+- Trained using labeled cyberbullying tweets dataset
 
 ---
 
-## 🧠 Model Info
+## ⚙️ Dependencies
 
-- **TF-IDF** used to convert text into numerical vectors (max 5000 features)
-- **Sentiment features**: polarity and subjectivity
-- **Final model**: Stacking Classifier with Logistic Regression as meta-learner
-- Balanced with **SMOTE** to address class imbalance
+See `requirements.txt`:
 
+```
+streamlit==1.35.0
+pandas==2.2.2
+numpy==1.26.4
+scikit-learn==1.4.2
+joblib==1.4.2
+gdown==5.1.0
+nltk==3.8.1
+textblob==0.18.0
+```
 
 ---
 
-## 👤 Author
+## 👨‍💻 Author
 
 **Abhinav Raj**  
-Bachelor's in Computer Science – SRM IST  
-Passionate about Machine Learning, NLP, and Data Analysis.
+B.Tech CSE | SRM IST  
